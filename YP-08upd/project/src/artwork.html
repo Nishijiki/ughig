@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" href = "reset.css" title="Atom">
+    <link rel="alternate"  href="normalize.css" title="Atom">
+    <link rel="alternate" href="style.css" title="Atom">
+    <!-- <link rel="alternate" href="style.sass" title="atom"> -->
+    <title>ArtWorks</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/icons/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icons/favicons/ms-icon-310x310.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+<!-- Непонятный скрипт нахрена он нужен -->
+    <script>
+
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("artwork-slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    <style>
+       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        
+    }
+    header {
+        background: #202020;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  
+    nav {
+        background: #333; /* Dark background color for the navigation bar */
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  
+  
+  
+  
+  
+    .logo img {
+        max-height: 50px; /* Set the maximum height of the logo image */
+    }
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+  
+    .search-container {
+        text-align: center;
+    }
+    .search-bar {
+        width: 100%; /* Set the width of the search bar to 100% */
+        padding: 10px;
+        margin: 20px 0;
+        box-sizing: border-box; /* Include padding and border in the width */
+    }
+    .search-bar input[type="text"] {
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+    }
+  
+     /* Media query for responsiveness */
+     @media only screen and (max-width: 600px) {
+          nav {
+              flex-direction: column;
+              align-items: center;
+          }
+          .nav-links {
+              flex-direction: column;
+              gap: 10px;
+          }
+      }
+  
+      .sign-up {
+          /* background: #da1b60; */
+          background: rgba(255, 255, 255, 0.4);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+      }
+  
+  
+      .login-button {
+          background: #007bff; /* Blue color for the "button" */
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: center;
+      }
+  
+      .login-form {
+          display: none; /* Hide the form initially */
+          background: #f4f4f4; /* Light background color for the form */
+          padding: 20px;
+          border-radius: 5px;
+          text-align: center;
+      }
+      .login-form input {
+          margin-bottom: 10px;
+      }
+  
+      /* Show the form when the button is clicked */
+      .login-button:focus + .login-form {
+          display: block;
+      }
+  
+      .menu {
+          display: flex;
+      }
+      .menu a {
+          color: white;
+          text-decoration: none;
+          padding: 5px;
+      }
+
+
+      .content {
+        display: flex;
+        flex: 1;
+    }
+    .left-section {
+        flex: 0 0 70%;
+        padding: 20px;
+        background-color: #000000;
+        border-bottom: 2px solid #ccc;
+    }
+    .left-section img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .right-section {
+        /* flex: 0 0 30%; */
+        flex: 1;
+        padding: 20px;
+        background-color: #2b2929;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        /* height: 100%; */
+    }
+    
+    .right-section h2, .right-section p, .right-section .author {
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    /* .right-section h2 {
+        color: white;
+        margin-bottom: 10px;
+    }
+    .right-section p {
+        color: white;
+        margin-bottom: 10px;
+    }
+    .right-section .author {
+        color: white;
+        margin-bottom: 10px;
+    } */
+    .like-button, .save-button {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 10px;
+        background-color: #ccc;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .likes-views {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        color: white;
+    } 
+    .like-button:hover, .save-button:hover {
+        background-color: #999;
+    }
+    .comment-segment {
+        flex: 1;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    .comment-segment h3 {
+        color: white;
+    }
+    .comment-segment ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow-y: auto;
+    }
+    .comment-segment li {
+        background-color: #333;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .section {
+        padding: 20px;
+        background-color: #ccc;
+    }
+
+   
+
+
+    .author {
+        display: flex;
+        align-items: center;
+    }
+    .author img {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+      </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <img src="/img/-Photoroom.png-Photoroom.png" width="100px" height="100px">
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск...">
+        </div>
+        <nav class="menu">
+            <a href="#">Популярное</a>
+            <a href="#">Работа</a>
+            <a href="#">Обучение</a>
+            <a href="#">Источники</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <a href="#" class="sign-up">Регистрация</a>
+
+    </header>
+    <nav>
+        <div class="nav-links">
+            <a href="#">Главное</a>
+            <button class="login-button">Логин</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="left-section">
+            <h1></h1>
+            <img src="/img/chengyou-liu-01.jpg" alt="Photo Template"><br>
+            <img src="/img/chengyou-liu-02.jpg" alt="Photo Template"><br>
+            <img src="/img/chengyou-liu-03.jpg" alt="Photo Template"><br>
+            <img src="/img/chengyou-liu-04.jpg" alt="Photo Template"><br>
+        </div>
+        <div class="right-section">
+            <h2><strong>Spirit Blossom Lux </strong></h2>
+            <p><bold>Spirit Blossom Lux</bold>
+                这是我参加金铲铲之战的作品，希望你能喜欢她！
+                This is my work for the Battle of the Golden Shovel, I hope you like her!
+                这里是 链接 https://www.ggac.com/v2/work/detail/409701</p>
+            <div class="author">Chengyou Liu</div>
+            <div class = "author-img">
+            <img src="/img/chengchong.jpg" alt="">
+            <div class="buttons">
+                <button class="like-button">Like</button>
+                <button class="save-button">Save</button>
+                </div>
+            </div>
+            <div class="likes-views">
+                <span>100 Likes</span>
+                <span>1000 Views</span>
+            </div>
+            <div class="comment-segment">
+                <h3>Comments</h3>
+                <ul>
+                    <li>Comment 1</li>
+                    <li>Comment 2</li>
+                    <li>Comment 3</li>
+                </ul>
+            </div>
+           
+        </div>
+       </div>
+       
+    </div>
+</body>
+</html>
